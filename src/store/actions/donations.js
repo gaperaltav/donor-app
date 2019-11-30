@@ -1,5 +1,5 @@
 import { FETCH_DONATIONS_SUCCEED } from '../actionTypes';
-import api from '../../services/api';
+import api from 'services/api';
 
 export const getDonations = () => async (dispatch) => {
 

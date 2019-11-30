@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import DonationCard from '../../components/donationCard/donationCard';
+import DonationCard from 'components/donationCard/donationCard';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
-import { getDonations } from '../../store/actions/donations';
+import { getDonations } from 'store/actions/donations';
 
 class DonationList extends Component {
 
