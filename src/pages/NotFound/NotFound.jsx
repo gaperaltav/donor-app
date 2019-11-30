@@ -1,15 +1,14 @@
 import React from 'react';
 import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
-
-//#00a79d
+import style from './style';
 
 const NotFound = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <Container>
-        <img src="/img/404.jpg" ></img>
+      <Container style={style.container} >
+        <img style={style.img} src="/img/404.jpg" ></img>
       </Container>
     </ React.Fragment>
   );
