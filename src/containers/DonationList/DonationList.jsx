@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import DonationCard from 'components/donationCard/donationCard';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
 import { getDonations } from 'store/actions/donations';
+import DonationsTable from 'components/donationsTable';
 
 class DonationList extends Component {
 
@@ -16,12 +16,9 @@ class DonationList extends Component {
     const { donations } = this.props;
     return (
       <Box display="flex" flexDirection="column" >
-        {donations && donations.map((donation, i) =>
-          <DonationCard
-            key={i}
-            title={donation.reason}
-          />
-        )}
+        <DonationsTable
+          donations={donations}
+        />
       </Box>
     );
   }
