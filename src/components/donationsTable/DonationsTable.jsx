@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { propTypes } from './props';
 import style from './style';
-import { Table, TableHead, TableRow, TableCell, TableBody, Paper } from "@material-ui/core";
+import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typography, IconButton } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
 
 class DonationsTable extends Component {
   render() {
@@ -9,6 +10,14 @@ class DonationsTable extends Component {
     console.log(donations);
     return (
       <Paper style={style.paper} >
+        <Toolbar >
+          <Typography variant="h6" id="tableTitle">
+            Donor requests
+        </Typography>
+          <IconButton aria-label="delete">
+            <AddIcon />
+          </IconButton>
+        </Toolbar>
         <Table style={style.Table} >
           <TableHead>
             <TableRow>
