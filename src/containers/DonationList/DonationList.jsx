@@ -5,21 +5,37 @@ import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
 import { getDonations } from 'store/actions/donations';
 import DonationsTable from 'components/donationsTable';
+import CreateDonationModal from '../createDonationModal';
 
 class DonationList extends Component {
 
-  componentDidMount() {
+  state = {
+    showAddModal: false,
+  }
+
+  componentDidMount = () => {
     this.props.getDonations();
   }
 
+  handlerShowAddModal = () =>
+    this.setState({ showAddModal: !this.state.showAddModal });
+
   render() {
     const { donations } = this.props;
+    const { showAddModal } = this.state;
     return (
-      <Box display="flex" flexDirection="column" >
-        <DonationsTable
-          donations={donations}
-        />
-      </Box>
+      <React.Fragment>
+        <Box display="flex" flexDirection="column" >
+          <DonationsTable
+            donations={donations}
+            onClickAdd={this.handlerShowAddModal}
+          />
+          <CreateDonationModal
+            showAddModal={showAddModal}
+          />
+        </Box>
+
+      </React.Fragment>
     );
   }
 }
