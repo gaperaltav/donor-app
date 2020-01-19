@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
-import { getDonations } from 'store/actions/donations';
+import { getDonationRequests } from 'store/actions/donationRequests';
 import DonationsTable from 'components/donationsTable';
 import CreateDonationModal from '../createDonationModal';
 
@@ -14,38 +14,37 @@ class DonationList extends Component {
   }
 
   componentDidMount = () => {
-    this.props.getDonations();
+    this.props.getDonationRequests();
   }
 
   handlerShowAddModal = () =>
     this.setState({ showAddModal: !this.state.showAddModal });
 
   render() {
-    const { donations } = this.props;
+    const { donationRequests } = this.props;
     const { showAddModal } = this.state;
     return (
       <React.Fragment>
-        <Box display="flex" flexDirection="column" >
+        <Box display="flex" flexDirection="column">
           <DonationsTable
-            donations={donations}
+            donations={donationRequests}
             onClickAdd={this.handlerShowAddModal}
           />
           <CreateDonationModal
             showAddModal={showAddModal}
           />
         </Box>
-
       </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = ({ donations }) => ({
-  donations: donations.data,
+const mapStateToProps = ({ donationRequests }) => ({
+  donationRequests: donationRequests.data,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  getDonations,
+  getDonationRequests,
 },
   dispatch
 );

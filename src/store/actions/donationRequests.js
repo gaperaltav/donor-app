@@ -1,15 +1,15 @@
 import { FETCH_DONATIONS_SUCCEED } from '../actionTypes';
 import api from 'services/api';
 
-export const getDonations = () => async (dispatch) => {
+export const getDonationRequests = () => async (dispatch) => {
 
   const request = await api.fetchDonations();
 
   if (request) {
-    const payloadData = request.data;
+    const payload = request.data;
     dispatch({
       type: FETCH_DONATIONS_SUCCEED,
-      payload: payloadData
+      payload: payload
     });
   }
 };
