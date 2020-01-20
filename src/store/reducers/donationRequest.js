@@ -1,18 +1,28 @@
 import * as actions from '../actionTypes';
 
-const initalDonationrequest = {
+const initalState = {
+  meta: null,
+  data: {
     title: '',
     description: '',
-}
-
-const initialState = {
-  meta: null,
-  data: initalDonationrequest
+  }
 };
 
-const donationRequest = (state = initialState, actions) => {
+const donationRequest = (state = initalState, action) => {
+  switch (action.type) {
+    case actions.UPDATE_DONATION_REQUEST_TITLE:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          title: action.payload,
+        }
+      };
+    default:
+      break;
+  }
 
-    
+  return state;
+};
 
-    return state;
-}
+export default donationRequest;

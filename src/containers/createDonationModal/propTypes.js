@@ -1,10 +1,7 @@
 import { PropTypes } from 'prop-types';
 
-const propTypes = {
+export const propTypes = {
     showAddModal: PropTypes.boolean,
+    onCancelModal: PropTypes.func.isRequired,
 
-};
-
-export {
-  propTypes,
 };
