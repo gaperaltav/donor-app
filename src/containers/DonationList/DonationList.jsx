@@ -32,6 +32,7 @@ class DonationList extends Component {
           />
           <CreateDonationModal
             showAddModal={showAddModal}
+            onCancelModal={this.handlerShowAddModal}
           />
         </Box>
       </React.Fragment>
