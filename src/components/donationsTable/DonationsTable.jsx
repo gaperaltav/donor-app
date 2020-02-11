@@ -5,6 +5,11 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typog
 import AddIcon from "@material-ui/icons/Add";
 
 class DonationsTable extends Component {
+
+  onClickAddButton = () => {
+  
+  }
+
   render() {
     const { donations } = this.props;
     console.log(donations);
@@ -14,8 +19,8 @@ class DonationsTable extends Component {
           <Typography variant="h6" id="tableTitle">
             Donor requests
         </Typography>
-          <IconButton aria-label="delete">
-            <AddIcon />
+          <IconButton onClick={this.onClickAddButton} aria-label="Add new">
+            <AddIcon  />
           </IconButton>
         </Toolbar>
         <Table style={style.Table} >
