@@ -5,12 +5,17 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typog
 import AddIcon from "@material-ui/icons/Add";
 
 class DonationsTable extends Component {
+
+  onClickAddButton = () => {
+
+  }
+
   render() {
-    const { 
-      donations, 
+    const {
+      donations,
       onClickAdd
     } = this.props;
-   
+
     return (
       <Paper style={style.paper} >
         <Toolbar >
