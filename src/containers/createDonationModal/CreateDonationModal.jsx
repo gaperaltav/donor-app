@@ -4,18 +4,21 @@ import { propTypes } from "./propTypes";
 import { TextField, Typography, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateDonationrequestTitle } from 'store/actions/donationRequest';
+import { updateDonationRequestTitle, updateDontaionRequestDescription } from 'store/actions/donationRequest';
 
 class CreateDonationModal extends Component {
 
   handlerTitleChanged = (event) =>
-    this.props.updateDonationrequestTitle(event.target.value);
+    this.props.updateDonationRequestTitle(event.target.value);
+
+  handlerDescriptionChanged = (event) =>
+    this.props.updateDontaionRequestDescription(event.target.value);
 
   render() {
-    const { 
+    const {
       showAddModal,
       onCancelModal,
-     } = this.props;
+    } = this.props;
 
     return (
       <BaseModal
@@ -43,11 +46,12 @@ class CreateDonationModal extends Component {
             fullWidth
             rowsMax="5"
             defaultValue=""
+            onChange={this.handlerDescriptionChanged}
           />
         </div>
         <div>
           <Button variant="contained" onClick={onCancelModal} >Cancel</Button>
-          <Button variant="contained"  color="primary">
+          <Button variant="contained" color="primary">
             Create
           </Button>
         </div>
@@ -61,7 +65,8 @@ const mapStateToprops = ({ donationRequest }) => ({
 });
 
 const mapDispacthToProps = () => (dispatch) => bindActionCreators({
-  updateDonationrequestTitle
+  updateDonationRequestTitle,
+  updateDontaionRequestDescription,
 },
   dispatch
 );

@@ -18,11 +18,20 @@ const donationRequest = (state = initalState, action) => {
           title: action.payload,
         }
       };
+
+      case actions.UPDATE_DONATION_REQUEST_DESCRIPTION: 
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          description: action.payload,
+        }
+      };
     default:
       break;
   }
-
   return state;
 };
+
 
 export default donationRequest;

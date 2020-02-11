@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
-import DonationList from 'containers/donationList';
+import DonationList from 'containers/DonationList';
 
 const Home = () => {
   return (
