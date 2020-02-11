@@ -14,6 +14,11 @@ class CreateDonationModal extends Component {
   handlerDescriptionChanged = (event) =>
     this.props.updateDontaionRequestDescription(event.target.value);
 
+  canSubmit = () => {
+    const { title, description } = this.props.donationRequest;
+    return title.trim() !== '' && description.trim() !== '';
+  };
+
   render() {
     const {
       showAddModal,
@@ -51,7 +56,7 @@ class CreateDonationModal extends Component {
         </div>
         <div>
           <Button variant="contained" onClick={onCancelModal} >Cancel</Button>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" disabled={!this.canSubmit()} color="primary">
             Create
           </Button>
         </div>
