@@ -6,6 +6,7 @@ import { Box } from '@material-ui/core';
 import { getDonationRequests } from 'store/actions/donationRequests';
 import DonationsTable from 'components/donationsTable';
 import CreateDonationModal from '../createDonationModal';
+import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
 
 class DonationList extends Component {
 
@@ -17,8 +18,19 @@ class DonationList extends Component {
     this.props.getDonationRequests();
   }
 
-  handlerShowAddModal = () =>
+  handlerShowAddModal = () => {
+    if (this.state.showAddModal) {
+      this.props.resetDonationRequest();
+    }
     this.setState({ showAddModal: !this.state.showAddModal });
+  }
+
+
+  handlerSubmitModal = (donation) => {
+    const { createDonationRequest } = this.props;
+    createDonationRequest(donation)
+      .then(() => this.handlerShowAddModal());
+  }
 
   render() {
     const { donationRequests } = this.props;
@@ -33,6 +45,7 @@ class DonationList extends Component {
           <CreateDonationModal
             showAddModal={showAddModal}
             onCancelModal={this.handlerShowAddModal}
+            onSubmitModal={this.handlerSubmitModal}
           />
         </Box>
       </React.Fragment>
@@ -46,6 +59,8 @@ const mapStateToProps = ({ donationRequests }) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   getDonationRequests,
+  createDonationRequest,
+  resetDonationRequest: resetDonationRequestToinitalState
 },
   dispatch
 );
