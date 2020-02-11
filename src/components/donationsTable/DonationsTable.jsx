@@ -7,20 +7,23 @@ import AddIcon from "@material-ui/icons/Add";
 class DonationsTable extends Component {
 
   onClickAddButton = () => {
-  
+
   }
 
   render() {
-    const { donations } = this.props;
-    console.log(donations);
+    const {
+      donations,
+      onClickAdd
+    } = this.props;
+
     return (
       <Paper style={style.paper} >
         <Toolbar >
           <Typography variant="h6" id="tableTitle">
             Donor requests
         </Typography>
-          <IconButton onClick={this.onClickAddButton} aria-label="Add new">
-            <AddIcon  />
+          <IconButton onClick={onClickAdd} aria-label="add">
+            <AddIcon />
           </IconButton>
         </Toolbar>
         <Table style={style.Table} >

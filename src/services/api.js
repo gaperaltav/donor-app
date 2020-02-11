@@ -7,6 +7,9 @@ const api = axios.create({
 
 const fetchDonations = () => api.get('/donations');
 
+const newDonation = (donation) => api.post('/donations', donation);
+
 export default {
   fetchDonations,
+  newDonation,
 };

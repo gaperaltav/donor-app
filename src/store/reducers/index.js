@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import donations from './donation';
+import donationRequests from './donationRequests';
+import donationRequest from './donationRequest';
 
 export default combineReducers({
-  donations,
+  donationRequests,
+  donationRequest,
 });

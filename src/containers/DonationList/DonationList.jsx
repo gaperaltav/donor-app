@@ -3,33 +3,64 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
-import { getDonations } from 'store/actions/donations';
+import { getDonationRequests } from 'store/actions/donationRequests';
 import DonationsTable from 'components/donationsTable';
+import CreateDonationModal from '../createDonationModal';
+import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
 
 class DonationList extends Component {
 
-  componentDidMount() {
-    this.props.getDonations();
+  state = {
+    showAddModal: false,
+  }
+
+  componentDidMount = () => {
+    this.props.getDonationRequests();
+  }
+
+  handlerShowAddModal = () => {
+    if (this.state.showAddModal) {
+      this.props.resetDonationRequest();
+    }
+    this.setState({ showAddModal: !this.state.showAddModal });
+  }
+
+
+  handlerSubmitModal = (donation) => {
+    const { createDonationRequest } = this.props;
+    createDonationRequest(donation)
+      .then(() => this.handlerShowAddModal());
   }
 
   render() {
-    const { donations } = this.props;
+    const { donationRequests } = this.props;
+    const { showAddModal } = this.state;
     return (
-      <Box display="flex" flexDirection="column" >
-        <DonationsTable
-          donations={donations}
-        />
-      </Box>
+      <React.Fragment>
+        <Box display="flex" flexDirection="column">
+          <DonationsTable
+            donations={donationRequests}
+            onClickAdd={this.handlerShowAddModal}
+          />
+          <CreateDonationModal
+            showAddModal={showAddModal}
+            onCancelModal={this.handlerShowAddModal}
+            onSubmitModal={this.handlerSubmitModal}
+          />
+        </Box>
+      </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = ({ donations }) => ({
-  donations: donations.data,
+const mapStateToProps = ({ donationRequests }) => ({
+  donationRequests: donationRequests.data,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  getDonations,
+  getDonationRequests,
+  createDonationRequest,
+  resetDonationRequest: resetDonationRequestToinitalState
 },
   dispatch
 );

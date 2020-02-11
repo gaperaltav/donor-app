@@ -5,7 +5,7 @@ const initialState = {
   data: []
 };
 
-const donations = (state = initialState, action) => {
+const donationRequests = (state = initialState, action) => {
   switch (action.type) {
     case actions.FETCH_DONATIONS_SUCCEED: {
       return {
@@ -16,6 +16,15 @@ const donations = (state = initialState, action) => {
         ]
       };
     }
+    
+    case actions.CREATE_DONATION_REQUEST_SUCCEED:
+    return {
+      ...state,
+      data: [
+        ...state.data,
+        action.payload,
+      ]
+    };
 
     default:
       break;
@@ -25,4 +34,4 @@ const donations = (state = initialState, action) => {
 };
 
 
-export default donations;
+export default donationRequests;
