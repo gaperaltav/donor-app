@@ -15,8 +15,6 @@ export const resetDonationRequestToinitalState = () => (dispatch) => {
 };
 
 export const updateDonationRequestTitle = (title) => (dispatch) => {
-  if (title.trim() === '') return;
-
   dispatch({
     type: UPDATE_DONATION_REQUEST_TITLE,
     payload: title,
@@ -24,7 +22,6 @@ export const updateDonationRequestTitle = (title) => (dispatch) => {
 };
 
 export const updateDontaionRequestDescription = (description) => (dispatch) => {
-  if (description.trim() === '') return;
   dispatch({
     type: UPDATE_DONATION_REQUEST_DESCRIPTION,
     payload: description,
