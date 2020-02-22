@@ -16,15 +16,15 @@ const donationRequests = (state = initialState, action) => {
         ]
       };
     }
-    
+
     case actions.CREATE_DONATION_REQUEST_SUCCEED:
-    return {
-      ...state,
-      data: [
-        ...state.data,
-        action.payload,
-      ]
-    };
+      return {
+        ...state,
+        data: [
+          ...state.data,
+          action.payload,
+        ]
+      };
 
     default:
       break;
