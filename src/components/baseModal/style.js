@@ -1,6 +1,6 @@
 const style = {
   paper: {
-    width: '42%',
+    width: '30%',
     padding: '15px',
     outline: 'none',
   },

@@ -12,9 +12,6 @@ const initalState = {
 const donationRequest = (state = initalState, action) => {
   switch (action.type) {
     case actions.RESET_DONATION_REQUEST_INITIAL_STATE:
-      console.log(' Im in the reducer!!!!');
-      console.log(' Im in the reducer!!!!');
-      console.log(' Im in the reducer!!!!');
       return {
         ...initalState,
       };

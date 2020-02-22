@@ -25,9 +25,9 @@ class DonationList extends Component {
     this.setState({ showAddModal: !this.state.showAddModal });
   }
 
-
   handlerSubmitModal = (donation) => {
     const { createDonationRequest } = this.props;
+
     createDonationRequest(donation)
       .then(() => this.handlerShowAddModal());
   }
