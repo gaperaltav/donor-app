@@ -13,7 +13,6 @@ import {
   updateDontaionRequestBloodType,
 } from 'store/actions/donationRequest';
 
-
 class CreateDonationModal extends Component {
 
   handlerTitleChanged = (event) =>
