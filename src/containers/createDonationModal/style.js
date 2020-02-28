@@ -1,5 +1,5 @@
 const style = {
-  actionArea: {
+  modalActionArea: {
     display: "flex",
     justifyContent: "center",
     marginTop: '20px',

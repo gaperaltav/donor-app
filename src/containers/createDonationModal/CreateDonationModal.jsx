@@ -24,7 +24,6 @@ class CreateDonationModal extends Component {
   handlerBloodTypeChanged = (event) =>
     this.props.updateDontaionRequestBloodType(event.target.value);
 
-
   canSubmit = () => {
     const { title, description, bloodType } = this.props.donationRequest;
     return title.trim() !== '' && description.trim() !== '' && bloodType !== '';
@@ -91,11 +90,11 @@ class CreateDonationModal extends Component {
               </MenuItem>)}
           </Select>
         </div>
-        <div style={style.actionArea} >
+        <div style={style.modalActionArea} >
           <Button
             variant="contained"
             onClick={onCancelModal}
-            style={style.actionArea.cancelButton}
+            style={style.modalActionArea.cancelButton}
             color="secondary"
             startIcon={<Close />}
           >
@@ -106,7 +105,7 @@ class CreateDonationModal extends Component {
             disabled={!this.canSubmit()}
             color="primary"
             onClick={this.handlerSubmitCreateDonation}
-            style={style.actionArea.submitButton}
+            style={style.modalActionArea.submitButton}
             startIcon={<Add />}
           >
             Create
