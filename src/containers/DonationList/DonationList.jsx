@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
-import { getDonationRequests } from 'store/actions/donationRequests';
+import { getDonationList } from 'store/actions/donationList';
 import DonationsTable from 'components/donationsTable';
 import CreateDonationModal from '../createDonationModal';
 import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
@@ -33,13 +33,13 @@ class DonationList extends Component {
   }
 
   render() {
-    const { donationRequests } = this.props;
+    const { donationList } = this.props;
     const { showAddModal } = this.state;
     return (
       <React.Fragment>
         <Box display="flex" flexDirection="column">
           <DonationsTable
-            donations={donationRequests}
+            donations={donationList}
             onClickAdd={this.handlerShowAddModal}
           />
           <CreateDonationModal
@@ -53,12 +53,12 @@ class DonationList extends Component {
   }
 }
 
-const mapStateToProps = ({ donationRequests }) => ({
-  donationRequests: donationRequests.data,
+const mapStateToProps = ({ donationList }) => ({
+  donationList: donationList.data,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  getDonationRequests,
+  getDonationRequests: getDonationList,
   createDonationRequest,
   resetDonationRequest: resetDonationRequestToinitalState
 },
