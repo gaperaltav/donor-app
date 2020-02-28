@@ -5,7 +5,7 @@ const initialState = {
   data: []
 };
 
-const donationRequests = (state = initialState, action) => {
+const donationList = (state = initialState, action) => {
   switch (action.type) {
     case actions.FETCH_DONATIONS_SUCCEED: {
       return {
@@ -34,4 +34,4 @@ const donationRequests = (state = initialState, action) => {
 };
 
 
-export default donationRequests;
+export default donationList;
