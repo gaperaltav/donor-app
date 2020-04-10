@@ -3,11 +3,12 @@ import { propTypes } from './props';
 import style from './style';
 import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typography, IconButton } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import { withRouter } from "react-router-dom";
 
 const DonationsTable = (props) => {
 
   const onClickRowHandler = () => {
-
+    props.history.push('/detail');
   };
 
   const {
@@ -53,4 +54,4 @@ const DonationsTable = (props) => {
 
 DonationsTable.propTypes = propTypes;
 
-export default DonationsTable;
+export default withRouter(DonationsTable);
