@@ -7,6 +7,11 @@ const initialState = {
 
 const donationList = (state = initialState, action) => {
   switch (action.type) {
+    case actions.RESET_DONATIONS_INITIAL_STATE:
+      return {
+        ...initialState,
+      };
+
     case actions.FETCH_DONATIONS_SUCCEED: {
       return {
         ...state,

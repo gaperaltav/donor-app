@@ -1,4 +1,4 @@
-import { FETCH_DONATIONS_SUCCEED } from '../actionTypes';
+import * as actions from '../actionTypes';
 import api from 'services/api';
 
 export const getDonationList = () => async (dispatch) => {
@@ -8,8 +8,15 @@ export const getDonationList = () => async (dispatch) => {
   if (request) {
     const payload = request.data;
     dispatch({
-      type: FETCH_DONATIONS_SUCCEED,
+      type: actions.FETCH_DONATIONS_SUCCEED,
       payload: payload
     });
   }
+};
+
+export const resetDonationList = () => async (dispatch) => {
+  dispatch({
+    type: actions.RESET_DONATIONS_INITIAL_STATE,
+    payload: null,
+  });
 };
