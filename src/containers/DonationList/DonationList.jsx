@@ -7,6 +7,7 @@ import { getDonationList, resetDonationList } from 'store/actions/donationList';
 import DonationsTable from 'components/donationsTable';
 import CreateDonationModal from '../createDonationModal';
 import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
+import { withRouter } from "react-router-dom";
 
 class DonationList extends Component {
 
@@ -17,6 +18,10 @@ class DonationList extends Component {
   componentDidMount = () => {
     this.props.getDonationRequests();
   }
+
+  onClickRowHandler = (id) => {
+    this.props.history.push(`/detail/${id}`);
+  };
 
   componentWillUnmount = () => {
     this.props.resetDonationList();
@@ -45,6 +50,7 @@ class DonationList extends Component {
           <DonationsTable
             donations={donationList}
             onClickAdd={this.handlerShowAddModal}
+            onClickRow={this.onClickRowHandler}
           />
           <CreateDonationModal
             showAddModal={showAddModal}
@@ -72,6 +78,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 
 DonationList.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(DonationList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DonationList));
 
 
