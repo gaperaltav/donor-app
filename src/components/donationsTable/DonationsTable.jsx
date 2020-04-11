@@ -33,7 +33,7 @@ const DonationsTable = (props) => {
         <TableBody>
           {donations && donations.map(donation =>
             <React.Fragment key={donation._id}>
-              <TableRow hover={true} onClick={onClickRow} >
+              <TableRow hover={true} onClick={() => onClickRow(donation._id)} >
                 <TableCell key={donation.bloodType} component="th" scope="row">
                   {donation.bloodType}
                 </TableCell>

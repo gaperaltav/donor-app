@@ -8,7 +8,7 @@ const AppRoutes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/detail" component={DonationDetail} />
+      <Route exact path="/detail/:id" component={DonationDetail} />
 
       <Route component={NotFound}/>
     </Switch>
