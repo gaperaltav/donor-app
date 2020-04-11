@@ -3,17 +3,13 @@ import { propTypes } from './props';
 import style from './style';
 import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typography, IconButton } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import { withRouter } from "react-router-dom";
 
 const DonationsTable = (props) => {
-
-  const onClickRowHandler = () => {
-    props.history.push('/detail');
-  };
 
   const {
     donations,
     onClickAdd,
+    onClickRow,
   } = props;
 
   return (
@@ -37,7 +33,7 @@ const DonationsTable = (props) => {
         <TableBody>
           {donations && donations.map(donation =>
             <React.Fragment key={donation._id}>
-              <TableRow hover={true} onClick={onClickRowHandler} >
+              <TableRow hover={true} onClick={onClickRow} >
                 <TableCell key={donation.bloodType} component="th" scope="row">
                   {donation.bloodType}
                 </TableCell>
@@ -54,4 +50,4 @@ const DonationsTable = (props) => {
 
 DonationsTable.propTypes = propTypes;
 
-export default withRouter(DonationsTable);
+export default DonationsTable;
