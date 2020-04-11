@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
-import { getDonationList } from 'store/actions/donationList';
+import { getDonationList, resetDonationList } from 'store/actions/donationList';
 import DonationsTable from 'components/donationsTable';
 import CreateDonationModal from '../createDonationModal';
 import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
@@ -16,6 +16,10 @@ class DonationList extends Component {
 
   componentDidMount = () => {
     this.props.getDonationRequests();
+  }
+
+  componentWillUnmount = () => {
+    this.props.resetDonationList();
   }
 
   handlerShowAddModal = () => {
@@ -59,8 +63,9 @@ const mapStateToProps = ({ donationList }) => ({
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   getDonationRequests: getDonationList,
+  resetDonationRequest: resetDonationRequestToinitalState,
+  resetDonationList,
   createDonationRequest,
-  resetDonationRequest: resetDonationRequestToinitalState
 },
   dispatch
 );
