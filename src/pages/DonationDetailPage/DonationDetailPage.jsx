@@ -3,13 +3,13 @@ import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
 
 
-const DonationDetail = () => (
+const DonationDetailPage = () => (
     <Fragment>
         <Navbar />
         <Container>
-           
+
         </Container>
     </Fragment>
 );
 
-export default DonationDetail;
+export default DonationDetailPage;

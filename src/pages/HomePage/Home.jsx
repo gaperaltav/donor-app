@@ -1,17 +1,17 @@
 import React from 'react';
 import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
-import style from './style';
+import DonationList from 'containers/DonationList';
 
-const NotFound = () => {
+const HomePage = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <Container style={style.container} >
-        <img style={style.img} src="/img/404.jpg" ></img>
+      <Container>
+        <DonationList />
       </Container>
     </ React.Fragment>
   );
 };
 
-export default NotFound;
+export default HomePage;

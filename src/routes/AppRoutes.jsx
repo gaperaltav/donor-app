@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route } from 'react-router';
 import { Switch } from 'react-router-dom';
-import { Home, NotFound, DonationDetail } from 'pages';
-
+import { HomePage, NotFoundPage, DonationDetailPage } from 'pages';
 
 const AppRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/detail/:id" component={DonationDetail} />
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/detail/:id" component={DonationDetailPage} />
 
-      <Route component={NotFound}/>
+      <Route component={NotFoundPage} />
     </Switch>
   );
 };

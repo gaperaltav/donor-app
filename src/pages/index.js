@@ -1,4 +1,4 @@
-export { default as Home } from './Home';
-export { default as DonationDetail } from './DonationDetail';
+export { default as HomePage } from './HomePage';
+export { default as DonationDetailPage } from './DonationDetailPage';
 
-export { default as NotFound  } from './NotFound';
+export { default as NotFoundPage } from './NotFoundPage';
