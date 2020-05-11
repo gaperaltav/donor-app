@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { Box } from '@material-ui/core';
 import { getDonationList, resetDonationList } from 'store/actions/donationList';
-import DonationsTable from 'components/donationsTable';
+import DonationsTable from 'components/DonationsTable';
 import CreateDonationModal from './CreateDonationModal';
 import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
 import { withRouter } from "react-router-dom";

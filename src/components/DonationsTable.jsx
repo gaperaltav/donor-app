@@ -1,8 +1,14 @@
 import React from "react";
-import { propTypes } from './props';
-import style from './style';
+import { PropTypes } from 'prop-types';
 import { Table, TableHead, TableRow, TableCell, TableBody, Paper, Toolbar, Typography, IconButton } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+
+const styles = {
+  paper: {
+    width: '100%',
+    marginTop: '10px'
+  }
+};
 
 const DonationsTable = (props) => {
 
@@ -13,7 +19,7 @@ const DonationsTable = (props) => {
   } = props;
 
   return (
-    <Paper style={style.paper} >
+    <Paper style={styles.paper} >
       <Toolbar >
         <Typography variant="h6" id="tableTitle">
           Donor requests
@@ -22,7 +28,7 @@ const DonationsTable = (props) => {
           <AddIcon />
         </IconButton>
       </Toolbar>
-      <Table style={style.Table} >
+      <Table >
         <TableHead>
           <TableRow>
             <TableCell>Blood type</TableCell>
@@ -48,6 +54,10 @@ const DonationsTable = (props) => {
   );
 };
 
-DonationsTable.propTypes = propTypes;
+DonationsTable.propTypes = {
+  donations: PropTypes.array.isRequired,
+  onClickAdd: PropTypes.func.isRequired,
+  onClickRow: PropTypes.func,
+};
 
 export default DonationsTable;

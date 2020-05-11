@@ -1,7 +1,20 @@
 import React from 'react';
-import style from './style';
-import props from './props';
+import { PropTypes } from 'prop-types';
 import { Card, CardActionArea, CardContent, Typography } from '@material-ui/core/';
+
+const style = {
+  card: {
+    width: '100%',
+    minHeight: '95px',
+    margin: '10px',
+    action: {
+      height: '100%',
+    },
+    title: {
+      color: '#323232',
+    }
+  },
+};
 
 const DonationCard = (props) => {
   return (
@@ -18,7 +31,7 @@ const DonationCard = (props) => {
 };
 
 DonationCard.propTypes = {
-  ...props,
+  title: PropTypes.string.isRequired,
 };
 
 export default DonationCard;

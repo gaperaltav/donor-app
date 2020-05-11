@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BaseModal from 'components/baseModal/BaseModal';
+import BaseModal from 'components/BaseModal';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -143,7 +143,7 @@ const mapDispacthToProps = () => (dispatch) => bindActionCreators({
 );
 
 CreateDonationModal.propTypes = {
-  showAddModal: PropTypes.boolean,
+  showAddModal: PropTypes.bool.isRequired,
   onCancelModal: PropTypes.func.isRequired,
   onSubmitModal: PropTypes.func.isRequired,
 

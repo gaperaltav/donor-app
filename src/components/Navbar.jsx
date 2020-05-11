@@ -1,9 +1,15 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import style from './style';
+
+const styles = {
+  AppBar: {
+    position: 'absolute',
+    background : '#6669FF',
+  },
+};
 
 const Navbar = () => (
-  <AppBar style={style.AppBar} >
+  <AppBar style={styles.AppBar} >
     <Toolbar>
       <Typography variant="h4" >
         Donor

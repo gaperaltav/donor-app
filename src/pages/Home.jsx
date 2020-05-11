@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
+import Navbar from 'components/Navbar';
 import DonationList from 'containers/DonationList';
 
 const HomePage = () => {
