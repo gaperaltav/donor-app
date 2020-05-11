@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import BaseModal from 'components/baseModal/BaseModal';
-import { propTypes } from "./propTypes";
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { bloodTypes } from 'common/constants/bloodTypes';
-import style from "./style";
 import { TextField, Typography, Button, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { Close, Add } from '@material-ui/icons';
 import {
@@ -12,6 +11,21 @@ import {
   updateDontaionRequestDescription,
   updateDontaionRequestBloodType,
 } from 'store/actions/donationRequest';
+
+const style = {
+  modalActionArea: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: '20px',
+    cancelButton: {
+      width: '125px',
+    },
+    submitButton: {
+      width: '125px',
+      marginLeft: '10px',
+    }
+  }
+};
 
 class CreateDonationModal extends Component {
 
@@ -128,6 +142,18 @@ const mapDispacthToProps = () => (dispatch) => bindActionCreators({
   dispatch
 );
 
-CreateDonationModal.propTypes = propTypes;
+CreateDonationModal.propTypes = {
+  showAddModal: PropTypes.boolean,
+  onCancelModal: PropTypes.func.isRequired,
+  onSubmitModal: PropTypes.func.isRequired,
+
+  // mapDispacthToProps
+  updateDonationRequestTitle: PropTypes.func.isRequired,
+  updateDontaionRequestDescription: PropTypes.func.isRequired,
+  updateDontaionRequestBloodType: PropTypes.func.isRequired,
+
+  // mapStateToprops
+  donationRequest: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToprops, mapDispacthToProps)(CreateDonationModal);

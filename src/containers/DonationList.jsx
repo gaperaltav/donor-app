@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { propTypes } from './propTypes';
 import { Box } from '@material-ui/core';
 import { getDonationList, resetDonationList } from 'store/actions/donationList';
 import DonationsTable from 'components/donationsTable';
-import CreateDonationModal from '../createDonationModal';
+import CreateDonationModal from './CreateDonationModal';
 import { createDonationRequest, resetDonationRequestToinitalState } from "store/actions/donationRequest";
 import { withRouter } from "react-router-dom";
 
@@ -76,7 +76,18 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   dispatch
 );
 
-DonationList.propTypes = propTypes;
+DonationList.propTypes = {
+  donations: PropTypes.array,
+  getDonations: PropTypes.func,
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  getDonationRequests: PropTypes.func.isRequired,
+  resetDonationRequest: PropTypes.func.isRequired,
+  resetDonationList: PropTypes.func.isRequired,
+  createDonationRequest: PropTypes.func.isRequired,
+  donationList: PropTypes.array.isRequired,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DonationList));
 
