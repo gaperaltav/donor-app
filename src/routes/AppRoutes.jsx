@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router';
 import { Switch } from 'react-router-dom';
-import { HomePage, NotFoundPage, DonationDetailPage } from 'pages';
+import DonationDetailPage from 'pages/DonationDetailPage';
+import HomePage from 'pages/Home';
+import NotFoundPage from 'pages/NotFoundPage';
 
 const AppRoutes = () => {
   return (

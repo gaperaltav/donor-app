@@ -1,7 +1,17 @@
 import React from 'react';
 import { Navbar } from 'components';
 import { Container } from '@material-ui/core';
-import style from './style';
+
+const style = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  img: {
+    width: '50%',
+    marginTop: '35px',
+  }
+};
 
 const NotFoundPage = () => {
   return (
